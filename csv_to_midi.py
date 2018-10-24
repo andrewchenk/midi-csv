@@ -2,15 +2,15 @@
 This is the csv to midi module. 
 """
 
-import pandas as pd
 import re
 import os
-import random
-import music21
+#import random
 import sys
 import argparse
 from fractions import Fraction
  
+import music21
+import pandas as pd
 # defines numerical values for notes
 notes = ['C', 'D-', 'D', 'E-', 'E', 'F', 'G-', 'G', 'A-', 'A', 'B-', 'B']
 note_to_num = dict([[n, i] for i, n in enumerate(notes)])
@@ -123,10 +123,12 @@ def main():
 		
 	if not os.path.exists(output_dir_name):
 		os.makedirs(output_dir_name)
-
+		
+	print("Outputting mid files in to " + output_dir_name)
 	for file in os.listdir(input_dir):
+		
 		filename = os.fsdecode(file)
-		print("Processing " + filename)
+		print("Processing " + filename + " in to " + filename[:-4] + ".mid")
 		assert filename.endswith(".csv"), "files must be csv files"
 		df = pd.read_csv(args.input_dir_name + "/" + filename)
 		df_tempo = df.iloc[1,5] 

@@ -4,14 +4,13 @@ This is the midi to csv module.
 
 
 # TODO: ADD CHANNEL SUPPORT 
-import pandas as pd
-import re
 import os
 import random
-import music21
 import sys
 import argparse
-
+ 
+import music21
+import pandas as pd
  
 
 def is_dir(dirname):
@@ -46,10 +45,12 @@ def main():
 		
 	if not os.path.exists(output_dir_name):
 		os.makedirs(output_dir_name)
+		
+	print("Outputting csv files in to " + output_dir_name)
 
 	for file in os.listdir(input_dir):
 		filename = os.fsdecode(file)
-		print("Processing " + filename)
+		print("Processing " + filename + " in to " + filename[:-4] + ".csv")
 		assert filename.endswith(".mid"), "files must be midi files"
 		mf = music21.midi.MidiFile()
 		mf.open(args.input_dir_name + "/" + filename)
