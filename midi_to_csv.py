@@ -78,7 +78,7 @@ def main():
 			if note.isNote:
 				# print(note.offset)
 				# print(note.duration)
-				new_df = pd.DataFrame([[note.pitch, round(note.offset, 3), round(note.duration.quarterLength, 3), note.volume.velocity, note_tempo]], columns=["note_name", "start_time", "duration", "velocity", "tempo"])
+				new_df = pd.DataFrame([[note.pitch, round(float(note.offset), 3), round(note.duration.quarterLength, 3), note.volume.velocity, note_tempo]], columns=["note_name", "start_time", "duration", "velocity", "tempo"])
 				
 				df = df.append(new_df, ignore_index=True)
 			
