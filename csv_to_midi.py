@@ -129,7 +129,6 @@ def main():
 		
 		filename = os.fsdecode(file)
 		print("Processing " + filename + " in to " + filename[:-4] + ".mid")
-		assert filename.endswith(".csv"), "files must be csv files"
 		df = pd.read_csv(args.input_dir_name + "/" + filename)
 		df_tempo = df.iloc[1,5] 
 		if args.tempo: 
