@@ -25,7 +25,6 @@ def split_note(note):
 	>>> split_note("A-7") 
 	"A-", "7"
 	"""
-	assert re.fullmatch('[A-G](#|-)?[0-7]', note) is not None, 'Note not formatted correctly.'
 	return note[:-1], int(note[-1])
 
 
