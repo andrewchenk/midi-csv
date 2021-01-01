@@ -129,7 +129,7 @@ def main():
 		
 		filename = os.fsdecode(file)
 		print("Processing " + filename + " in to " + filename[:-4] + ".mid")
-		df = pd.read_csv(args.input_dir_name + "/" + filename)
+		df = pd.read_csv(args.input_dir_name + "/" + filename, engine='python')
 		df_tempo = df.iloc[1,5] 
 		if args.tempo: 
 			produce_midi(filename, df, args.tempo, output_dir_name)
